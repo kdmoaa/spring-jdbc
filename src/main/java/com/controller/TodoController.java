@@ -8,6 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.dao.TodoDao;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class TodoController {
@@ -16,18 +22,19 @@ public class TodoController {
 	private TodoDao todoDao;
 
 	@RequestMapping(value = "/todo", method = RequestMethod.GET)
-	public String index() {
-		return "todo/index";
+	public ModelAndView index(HttpServletRequest request, HttpServletResponse response) {
+		return new ModelAndView("todo/index");
 	}
 
 	@RequestMapping(value = "/todo/{id}", method = RequestMethod.GET)
-	public String findTodoById(Model model, @PathVariable int id) {
+	public ModelAndView findTodoById(HttpServletRequest request, HttpServletResponse response, @PathVariable int id) {
 
 		String title = todoDao.findTodo(id);
 
-		model.addAttribute("title", title);
+		Map<String, Object> model = new HashMap<>();
+		model.put("title", title);
 
-		return "todo/showTitle";
+		return new ModelAndView("todo/showTitle", "model", model);
 	}
 
 

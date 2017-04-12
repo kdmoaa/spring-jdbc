@@ -5,22 +5,22 @@
 *.ear
 
 # Eclipse
-.project
-.classpath
-.settings
+*.project
+*.classpath
+*.settings
 
 # Idea
-.idea
-.iml
-.iws
-.ipr
+*.idea
+*.iml
+*.iws
+*.ipr
 
 # OS
 Thumbs.db
-.DS_Store
+*.DS_Store
 
 # Gradle
-.gradle
+*.gradle
 !gradle-wrapper.jar
 
 # Maven

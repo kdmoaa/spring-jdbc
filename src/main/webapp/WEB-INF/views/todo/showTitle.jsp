@@ -6,6 +6,6 @@
 	</head>
 	<body>
 		<h2>This is Todo list</h2>
-		<p> Todo's title is ${title}. </p>
+		<p> Todo's title is ${model.title}. </p>
 	</body>
 </html>

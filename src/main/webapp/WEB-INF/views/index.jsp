@@ -6,6 +6,10 @@
 	</head>
 	<body>
 		Hello Spring!
-		<p> DB's data is ${data}. </p>
+		<div>
+			<form method="get" action="/todo">
+				<input type="submit" value="移動する">
+			</form>
+		</div>
 	</body>
 </html>
